@@ -1,0 +1,49 @@
+.header{
+    position: sticky;
+    top: 0;
+    min-height: 60px;
+    width: 100%;
+    margin:  0 auto;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: #141414;
+   
+    
+}
+.logo{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    padding-left: 40px;
+}
+.header-links{
+    display: flex;
+
+}
+.header-links ul li{
+    list-style: none;
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+
+}
+.btn{
+    width: 70px;
+    height: 40px;
+    margin-right: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: aqua;
+}
+.header-links ul li:hover{
+    color: #fffc3c;
+}
+.cart-length{
+    margin: 3px;
+    font-size: 14px;
+    font-weight: 700;
+    vertical-align: super;
+    color: brown
+}
