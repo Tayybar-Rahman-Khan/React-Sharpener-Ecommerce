@@ -1,30 +1,47 @@
-import React from 'react'
-import "./Header.css"
+import React from "react";
+import "./Header.css";
+import { NavLink } from "react-router-dom";
 
-const Header = ({onShown,cartItem}) => {
+
+
+const Header = ({ onShown, cartItem }) => {
   return (
-    <header className='header'>
-  <div className='logo'>
-      <h1 >Electronics Shop</h1>
-    </div>
-    <div className='header-links'>
+    <header className="header">
+      <div className="logo">
+        <h1>Electronics Shop</h1>
+      </div>
+      <div className="header-links">
         <ul>
-            <li>Home</li>
+          <li>
+            <NavLink className="nav" to="/home">
+              Home
+            </NavLink>
+          </li>
         </ul>
         <ul>
-            <li>Store</li>
+          <li>
+            <NavLink className="nav" to="/">
+              Store
+            </NavLink>
+          </li>
         </ul>
         <ul>
-            <li>About</li>
+          <li>About</li>
+          <li>
+            <NavLink className="nav" to="/about">
+              About
+            </NavLink>
+          </li>
         </ul>
-        
-
-    </div>
-    <button className='btn' onClick={onShown}>Cart  <span className='cart-length'>{cartItem.length===0?"":cartItem.length}</span> </button>
-  
+      </div>
+      <button className="btn" onClick={onShown}>
+        Cart{" "}
+        <span className="cart-length">
+          {cartItem.length === 0 ? "" : cartItem.length}
+        </span>{" "}
+      </button>
     </header>
-  
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

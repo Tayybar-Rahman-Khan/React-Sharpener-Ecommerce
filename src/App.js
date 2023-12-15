@@ -5,7 +5,8 @@ import Header from './components/Font/Header/Header';
 import Product from './components/Font/Product';
 import Cart from './components/Font/Cart/Cart';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import About from './components/Font/Header/Pages/About/About';
+import About from './Header/Pages/About/About';
+
 
 function App() {
   const { productItems } = data;
