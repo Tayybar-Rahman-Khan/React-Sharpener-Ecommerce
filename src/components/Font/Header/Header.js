@@ -1,8 +1,7 @@
 import React from "react";
+
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-
-
 
 const Header = ({ onShown, cartItem }) => {
   return (
@@ -13,7 +12,7 @@ const Header = ({ onShown, cartItem }) => {
       <div className="header-links">
         <ul>
           <li>
-            <NavLink className="nav" to="/home">
+            <NavLink className="nav" to="/">
               Home
             </NavLink>
           </li>
@@ -26,7 +25,6 @@ const Header = ({ onShown, cartItem }) => {
           </li>
         </ul>
         <ul>
-          <li>About</li>
           <li>
             <NavLink className="nav" to="/about">
               About

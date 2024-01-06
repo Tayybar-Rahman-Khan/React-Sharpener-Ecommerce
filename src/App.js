@@ -5,7 +5,7 @@ import Header from './components/Font/Header/Header';
 import Product from './components/Font/Product';
 import Cart from './components/Font/Cart/Cart';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import About from './Header/Pages/About/About';
+import About from './components/Font/Header/Pages/About/About';
 
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
 const handleCartClearance=()=>{
   setCartItem([]);
 }
+
   return (
     <div className="App">
       <Router>
@@ -52,6 +53,10 @@ const handleCartClearance=()=>{
       <Route path='/' element={   <Product productItems={productItems}  handleAddProduct={handleAddProduct}/>}/>
       <Route path="/about" element= {<About/>}/>
      </Routes>
+
+
+
+
 
       {cartShown && <Cart 
       onhidden={hiddenCartHandler}
@@ -64,5 +69,6 @@ const handleCartClearance=()=>{
     </div>
   );
 }
+
 
 export default App;
