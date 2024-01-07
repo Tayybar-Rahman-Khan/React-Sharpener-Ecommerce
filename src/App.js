@@ -6,7 +6,8 @@ import Product from './components/Font/Product';
 import Cart from './components/Font/Cart/Cart';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import About from './components/Font/Header/Pages/About/About';
-
+import Home from './components/Font/Header/Pages/Home/Home';
+import Contact from './components/Font/Header/Pages/Contact/Contact';
 
 function App() {
   const { productItems } = data;
@@ -44,6 +45,28 @@ function App() {
 const handleCartClearance=()=>{
   setCartItem([]);
 }
+async function addDetail(detail) {
+  try {
+    const response = await fetch('https://trk-ecommerce-default-rtdb.firebaseio.com/detail.json', {
+      method: 'POST',
+      body: JSON.stringify(detail),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to add detail.');
+    }
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error adding detail:', error.message);
+    // You can add further error handling or display error messages to the user here.
+  }
+}
+
 
   return (
     <div className="App">
@@ -51,8 +74,10 @@ const handleCartClearance=()=>{
     <Header onShown={shownCartHandler} cartItem={cartItem} />
      <Routes>
       <Route path='/' element={   <Product productItems={productItems}  handleAddProduct={handleAddProduct}/>}/>
-      <Route path="/about" element= {<About/>}/>
-     </Routes>
+      <Route path="/about" element= {<About/>}/>      
+      <Route path='/home' element={<Home/>}/>
+      <Route path='/contact' element={<Contact onAddDetail={addDetail}/>}/>
+    </Routes>
 
 
 
