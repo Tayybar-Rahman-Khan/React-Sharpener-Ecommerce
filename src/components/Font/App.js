@@ -1,21 +1,16 @@
-import React, { useState,useContext } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import data from './components/Back/Data/Data';
 import Header from './components/Font/Header/Header';
 import Product from './components/Font/Product';
 import Cart from './components/Font/Cart/Cart';
-import { BrowserRouter as Router,Routes,Route, Navigate } from 'react-router-dom';
-
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import About from './components/Font/Header/Pages/About/About';
 import Home from './components/Font/Header/Pages/Home/Home';
 import Contact from './components/Font/Header/Pages/Contact/Contact';
 import ProductDetail from './components/ProductDetail';
-import { AuthContext } from './Store/AuthContex';
-import UserProfile from './Auth/UserProfile';
-import AuthPages from './components/Font/Header/Pages/AuthPages';
 
 function App() {
-  const authCtx = useContext(AuthContext);
   const { productItems } = data;
   const [cartShown, setCartShown] = useState(false);
   const [cartItem, setCartItem] = useState([]);
@@ -48,8 +43,7 @@ function App() {
       setCartItem(cartItem.map((item)=>item.id===product.id?{...ProductExist,quantity:ProductExist.quantity-1}:item));
     }
   }
-
-  
+     
 const handleCartClearance=()=>{
   setCartItem([]);
 }
@@ -77,34 +71,21 @@ async function addDetail(detail) {
 
 
   return (
-
     <div className="App">
-          <Router>
-
+   <Router>
    <Header onShown={shownCartHandler} cartItem={cartItem} />
-   
-   <Routes>
-   <Route path="/" element={<Product productItems={productItems} handleAddProduct={handleAddProduct} />} />
-  <Route path="/products/:id" element={authCtx.isLoggedIn ? <ProductDetail productItems={productItems} /> : <Navigate to="/auth" />} />
-  <Route path="/about" element={authCtx.isLoggedIn ? <About /> : <Navigate to="/auth" />} />
-   <Route path='/home' element={<Home />} />
-   <Route path='/contact' element={<Contact onAddDetail={addDetail} />} />
-   {!authCtx.isLoggedIn && (
-       <Route path="/auth" element={<AuthPages />} />
-   )}
-   <Route path='/profile' element={<UserProfile />} />
-</Routes>
+     <Routes>
+      <Route path='/' element={   <Product productItems={productItems}  handleAddProduct={handleAddProduct}/> }/>
+      <Route path='/products/:id' element={<ProductDetail productItems={productItems}/>}/>
+      <Route path="/about" element= {<About/>}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route path='/contact' element={<Contact onAddDetail={addDetail}/>}/>
+     </Routes>
 
 
 
 
 
-     
-     
-     
-     
-     
-     
       {cartShown && <Cart 
       onhidden={hiddenCartHandler}
       cartItem={cartItem} 
@@ -116,4 +97,6 @@ async function addDetail(detail) {
     </div>
   );
 }
+
+
 export default App;

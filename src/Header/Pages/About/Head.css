@@ -1,0 +1,55 @@
+.head-title{
+    text-align: center;
+    font-weight: 1200;
+    font-size: 100px;
+    width: 100%;
+    height:200px;
+    background-color:#777;
+    color: white;
+    margin-top: 2px;
+    padding-top: 15px;
+    padding: 40px;
+}
+.about{
+    font-size: 30px;
+    text-align: center;
+    margin-top:30px;
+    font-weight: 900;
+    padding: 20px;
+}
+.my-paragraph{
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #777;
+    margin: 0; /* Remove default margin for cleaner appearance */
+    padding: 20px; /* Add padding for spacing */
+   
+    background-color: #f9f9f9; 
+
+}
+.img-band{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 75px;
+    padding-right: 20px;
+}
+.about-pag{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-left: 25%;
+
+}
+.foot{
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 10rem;
+    padding-top: 20px;
+    font-size: 50px;
+    color: white;
+    width: 100%;
+    background-color: #56CCF2;
+    height: 8rem;
+}

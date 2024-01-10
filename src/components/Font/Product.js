@@ -1,5 +1,6 @@
-import React from 'react';
-import './Product.css';
+import React from "react";
+import "./Product.css";
+import { Link } from "react-router-dom";
 
 const Product = ({ productItems, handleAddProduct }) => {
   return (
@@ -7,14 +8,18 @@ const Product = ({ productItems, handleAddProduct }) => {
       {productItems.map((productItem) => (
         <div className="card" key={productItem.id}>
           <div>
-            <img className="product-img" src={productItem.image} alt={productItem.name} />
+          <img
+              className="product-img"
+              src={productItem.image}
+              alt={productItem.name}
+            />
           </div>
           <div>
-            <h3 className="product-name">{productItem.name}</h3>
+          <Link to={`/products/${productItem.id}`}>
+              <h3 className="product-name">{productItem.name}</h3>
+          </Link>
           </div>
-          <div className="product-price">
-            Rs {productItem.price}
-          </div>
+          <div className="product-price">Rs {productItem.price}</div>
           <div>
             <button
               className="product-btn"
