@@ -13,6 +13,24 @@ import ProductDetail from './components/ProductDetail';
 import { AuthContext } from './Store/AuthContex';
 import UserProfile from './Auth/UserProfile';
 import AuthPages from './components/Font/Header/Pages/AuthPages';
+import { initializeApp } from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyAcGf2aECDefq-XFb5C88eCWOJG_brnAJ8",
+  authDomain: "trk-ecommerce.firebaseapp.com",
+  databaseURL: "https://trk-ecommerce-default-rtdb.firebaseio.com",
+  projectId: "trk-ecommerce",
+  storageBucket: "trk-ecommerce.appspot.com",
+  messagingSenderId: "959070350168",
+  appId: "1:959070350168:web:694fa0edb1f63b58d2532d"
+};
+
+
+initializeApp(firebaseConfig);
 
 function App() {
   const authCtx = useContext(AuthContext);
